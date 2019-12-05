@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 #!/usr/bin/env python
+=======
+#!/usr/bin/env python3
+>>>>>>> 6f4b96f... Day 1
 
 from fuel import Fuel
 from sys import argv, exit
 
+<<<<<<< HEAD
 def run(test_case):
+=======
+def run(test_case: str) -> int:
+>>>>>>> 6f4b96f... Day 1
   f = open('../input.txt', 'r')
   sum = 0
   
