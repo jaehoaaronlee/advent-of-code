@@ -1,10 +1,11 @@
 from functools import reduce
+from typing import List, Dict, Tuple, Union
 
 class Probe:
-  def __init__(self, paths):
+  def __init__(self, paths: List[List[str]]) -> None:
     self.paths = paths
   
-  def closest_intersection(self):
+  def closest_intersection(self) -> int:
     return min(
       [
         sum([abs(intersection[0]), abs(intersection[1])])
@@ -12,10 +13,10 @@ class Probe:
       ]
     )
 
-  def fewest_steps(self):
+  def fewest_steps(self) -> int:
     return min(self._intersections().values())
   
-  def _intersections(self):
+  def _intersections(self) -> Dict[Tuple[int, int], int]:
     visited = []
     for instructions in self.paths:
       points = {}
@@ -40,10 +41,10 @@ class Probe:
       for intersection in intersections
     }
 
-  def _take_instruction(self, origin, direction):
+  def _take_instruction(self, origin: Tuple[int, int], direction: Tuple[int, int]):
     return (origin[0] + direction[0], origin[1] + direction[1])
   
-  def _parse_instruction(self, instruction):
+  def _parse_instruction(self, instruction: str) -> List[Union(List[int], int)]:
     if instruction[0] == 'U':
       direction = [1, 0]
     elif instruction[0] == 'D':
